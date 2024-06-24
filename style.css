@@ -50,6 +50,12 @@ border: none;
 
 }
 
+.btnv1:hover{    
+    background-color: #3737de;
+    color: #fff;
+    opacity: 1;
+}
+
 .modal-content
 {
 
@@ -207,6 +213,10 @@ align-items: center;
     color: #0C39C7;    
     align-items: center;
 }
+.btnv2:hover{
+    background-color: #0C39C7;
+    color: #fff;
+}
 
 .Active-Task{
     max-width: 1312px;
@@ -231,6 +241,7 @@ align-items: center;
     max-width:1264px;
     width:100%;
     padding:24px;
+    justify-content: space-between;
     
 }
 
@@ -288,9 +299,16 @@ span{
 }
 
 .edit-btn , .delete-btn {
-    background-color: white;
+    background-color: transparent;
     border: 0px;
+    cursor: pointer;
 }
+
+.edit-btn:hover , .delete-btn:hover{
+    opacity: 0.5;
+}
+
+
 .red-btn{
     background-color:  #C035030F;
     color: #C03503;
