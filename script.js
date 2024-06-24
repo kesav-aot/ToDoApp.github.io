@@ -210,7 +210,7 @@ function update_content(index){
               <!-- Modal footer -->
               <div class="modal-footer">
                 <button type="button" class="btn cancel-task-btn" class="close" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary add-task-btn add-btn" onclick="updateTodo(${updated.completed} ,${index} )">Add Task</button>
+                <button type="button" class="btn btn-primary add-task-btn add-btn" onclick="updateTodo(${updated.completed} ,${index} )">Update Task</button>
               </div>
               
             </div>
