@@ -8,10 +8,10 @@ document.getElementById('sort').addEventListener('change', handleSelectChange);
 function handleSelectChange(event) {
     const selectedValue = event.target.value;
     if(selectedValue === 'newest'){
-        renderTodos(0);
+        renderTodos(1);
     }
     else {
-        renderTodos(1);
+        renderTodos();
     }
     console.log('Selected value:', selectedValue);
     // Additional logic to handle the change can be added here
@@ -32,14 +32,24 @@ function addTask() {
         mydata.push(obj);
         localStorage.setItem('todos', JSON.stringify(mydata));
         renderTodos();
+        window.location.reload();
         
     } else {
         alert('Please fill out all fields');
+        // addTask();
     }
 
     document.getElementById('taskForm').reset();
 }
 //render todos
+
+function formatDate(dateStr) {
+    var date = new Date(dateStr);
+    var day = date.getDate();
+    var month = date.toLocaleString('default', { month: 'short' });
+    var year = date.getFullYear();
+    return `${day+1} ${month} ${year}`;
+  }
 
 function renderTodos(no =  0) {
     todoList.innerHTML = ' ';
@@ -56,13 +66,14 @@ function renderTodos(no =  0) {
         event.sort((a, b) => new Date(b.date) - new Date(a.date));
         localStorage.setItem('todos', JSON.stringify(event));
     }
-   
-    event.forEach((todo, index) => {
+    let searchValue = document.getElementById('searchInput').value.toLowerCase();
+    let filteredTasks = event.filter(task => task.name.toLowerCase().includes(searchValue));
+    filteredTasks.forEach((todo, index) => {
         const div = document.createElement('div');
         div.className = 'todo-item';
         if(todo.completed == false){ 
             let date = new Date();
-            let givenDate = new Date(todo.date);
+            let givenDate= formatDate(todo.date);
         if(givenDate < date){
             div.innerHTML = `
             
