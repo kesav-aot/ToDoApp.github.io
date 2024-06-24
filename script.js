@@ -42,7 +42,16 @@ function addTask() {
     document.getElementById('taskForm').reset();
 }
 //render todos
+function getTodayDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 
+// Set the min attribute of the date input to today's date
+document.getElementById('dueDate').min = getTodayDate();
 function formatDate(dateStr) {
     var date = new Date(dateStr);
     var day = date.getDate();

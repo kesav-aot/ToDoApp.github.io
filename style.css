@@ -380,16 +380,3 @@ line-height: 20px;
 text-align: left;
 
 }
-.modal-body{
-    display: flex;
-    flex-direction: column;
-    gap:20px;
-    align-items: center;text-align: center;
-}
-.modal-header{
-    display: flex;
-    flex-direction: row;
-   
-    align-items: center;
-    text-align: center;
-}
