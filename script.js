@@ -77,7 +77,9 @@ function renderTodos(no =  0) {
     }
     let searchValue = document.getElementById('searchInput').value.toLowerCase();
     let filteredTasks = event.filter(task => task.name.toLowerCase().includes(searchValue));
-    filteredTasks.forEach((todo, index) => {
+    mydata.forEach((todo, index) => {
+        if (todo.name.toLowerCase().includes(searchValue)) {
+
         const div = document.createElement('div');
         div.className = 'todo-item';
         if(todo.completed == false){ 
@@ -174,6 +176,7 @@ function renderTodos(no =  0) {
         `;
         completedtodoList.appendChild(div);
         }
+    }
     });
 }
 
